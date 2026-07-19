@@ -430,10 +430,18 @@ code {
 }
 
 .hero-float-card--b {
-  right: 8%;
-  top: 28%;
-  --r: 8deg;
+  right: 5%;
+  top: 26%;
+  --r: 6deg;
   animation: float 4.8s ease-in-out infinite reverse;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (min-width: 960px) {
+  .hero-float-card--b { display: flex; }
 }
 
 .mock-popup {
@@ -473,15 +481,57 @@ code {
   border: 1.5px solid var(--border);
 }
 
-.float-chip {
-  padding: 10px 14px;
+.float-keys {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-white);
+  box-shadow: 4px 4px 0 var(--border);
+}
+
+.float-key {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: 2px solid var(--border);
   border-radius: 8px;
-  background: #daf5f0;
-  box-shadow: var(--shadow-2);
+  background: #f6f3ec;
+  box-shadow: 2px 2px 0 var(--border);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.float-key--lime {
+  background: var(--lime);
+}
+
+.float-key-plus {
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--ink-secondary);
+}
+
+.float-keys-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
   font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-secondary);
+  background: var(--bg-white);
+  border: 1.5px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  box-shadow: 1px 1px 0 var(--border);
 }
 
 .hero-orb {
