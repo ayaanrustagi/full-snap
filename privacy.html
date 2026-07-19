@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Full Snap</title>
+  <meta name="description" content="Full Snap privacy policy. Screenshots and redaction run on your device. No accounts, no Full Snap servers, no selling data.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ayaanrustagi.github.io/full-snap/privacy.html">
+  <meta name="theme-color" content="#C1F04C">
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <meta property="og:title" content="Privacy Policy — Full Snap">
+  <meta property="og:description" content="Local-first. Nothing uploads to Full Snap.">
+  <meta property="og:url" content="https://ayaanrustagi.github.io/full-snap/privacy.html">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="page-privacy">
+  <div class="page-shell">
+    <div class="site-frame">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-logo" href="index.html">
+          <img src="favicon-32.png" alt="" width="22" height="22">
+          FULL SNAP
+        </a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="nav-actions">
+          <a class="btn btn-primary btn-sm" href="index.html#install">Get Full Snap</a>
+        </div>
+      </nav>
+
+      <section class="section">
+        <div class="section-inner section-inner--narrow">
+          <div class="section-head">
+            <h2>Privacy Policy</h2>
+            <p>Effective date: July 19, 2026 · Full Snap Chrome extension &amp; this website</p>
+          </div>
+          <div class="prose">
+            <p><strong>Summary:</strong> Full Snap works on your computer. We do not operate a Full Snap backend that receives your screenshots, page content, or annotations. There is no Full Snap account.</p>
+
+            <h3>Who we are</h3>
+            <p>Full Snap is a browser extension and static marketing site. Contact: use the GitHub repository linked from the project homepage or the email listed on the Chrome Web Store listing when published.</p>
+
+            <h3>Data the extension processes</h3>
+            <ul>
+              <li><strong>Active tab content (transient):</strong> When you start a capture, the extension may scroll the page, read layout metrics, apply temporary on-page overlays for redaction or selection, and use Chrome’s <code>captureVisibleTab</code> API to create image data.</li>
+              <li><strong>Capture images:</strong> Held briefly in <code>chrome.storage.session</code> so the local editor tab can stitch and display them, then cleared. Exports (PNG/JPG) and clipboard copies are written only to your device or OS clipboard at your action.</li>
+              <li><strong>Preferences:</strong> Options such as capture delay, redaction on/off, hide sticky headers, and stamp on/off are stored in <code>chrome.storage.local</code>.</li>
+              <li><strong>Local history metadata:</strong> Optional short list of recent capture times, page titles/URLs, and mode — stored locally only, not for advertising.</li>
+            </ul>
+
+            <h3>What we do not do</h3>
+            <ul>
+              <li>No Full Snap cloud sync of screenshots</li>
+              <li>No sale of personal data</li>
+              <li>No advertising trackers inside the extension</li>
+              <li>No remote code execution</li>
+            </ul>
+
+            <h3>Permissions</h3>
+            <ul>
+              <li><strong>activeTab</strong> — access the tab you intentionally invoke the extension on</li>
+              <li><strong>scripting</strong> — inject capture helpers (scroll, region/element pickers, temporary redaction covers)</li>
+              <li><strong>storage</strong> — preferences and short-lived capture handoff to the editor</li>
+            </ul>
+
+            <h3>Redaction disclaimer</h3>
+            <p>Auto-redaction uses best-effort pattern matching in the page DOM (e.g. email-like text, password fields). It can miss content drawn in canvas, images, or unusual formats. Always review before sharing.</p>
+
+            <h3>Website</h3>
+            <p>This static site may be hosted on GitHub Pages. Hosting providers may log standard request data (IP, user agent) per their policies. The site does not set Full Snap accounts or receive extension capture data.</p>
+
+            <h3>Children</h3>
+            <p>Full Snap is not directed at children under 13.</p>
+
+            <h3>Changes</h3>
+            <p>We may update this policy; the effective date above will change. Continued use after updates means you accept the revised policy.</p>
+
+            <h3>Chrome Web Store</h3>
+            <p>When distributed via the Chrome Web Store, Google’s terms also apply to distribution. This policy describes the product’s own data practices.</p>
+
+            <p style="margin-top:28px">
+              <a class="btn btn-secondary" href="index.html">← Back to Full Snap</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-bottom">
+          <span>© Full Snap</span>
+          <span>Local-first · Manifest V3</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+</html>

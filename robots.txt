@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ayaanrustagi.github.io/full-snap/sitemap.xml
