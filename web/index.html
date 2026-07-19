@@ -3,38 +3,78 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Full Snap — Capture, Redact &amp; Ship Screenshots for Chrome</title>
-  <meta name="description" content="Chrome extension to capture pages, auto-redact emails and secrets, mark steps, and copy a report pack for Slack or Linear. Local-first — nothing uploads.">
-  <meta name="keywords" content="screenshot chrome extension, redact screenshot, bug report screenshot, full page screenshot, blur email screenshot, ship to slack">
+  <title>Full Snap — Screenshot, Redact &amp; Annotate for Chrome</title>
+  <meta name="description" content="Free Chrome screenshot extension for bug reports: full page, region, or element capture. Auto-redact emails and secrets, mark steps, copy a ship pack for Slack or Linear. Local-only — nothing uploads.">
   <meta name="author" content="Full Snap">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#C1F04C">
   <link rel="canonical" href="https://ayaanrustagi.github.io/full-snap/">
   <link rel="icon" type="image/png" href="favicon-32.png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:locale" content="en_US">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Full Snap">
-  <meta property="og:title" content="Full Snap — Capture, Redact & Ship">
-  <meta property="og:description" content="Screenshot safely. Auto-redact secrets. Mark steps. Paste into Slack or Linear. 100% local.">
+  <meta property="og:title" content="Full Snap — Screenshot, Redact & Annotate Chrome Extension">
+  <meta property="og:description" content="Capture pages, auto-redact secrets, annotate steps, ship packs to Slack/Linear. Free, local-first screenshot tool for bug reports.">
   <meta property="og:url" content="https://ayaanrustagi.github.io/full-snap/">
   <meta property="og:image" content="https://ayaanrustagi.github.io/full-snap/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Full Snap — Capture, Redact, Ship">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Full Snap — Capture, Redact & Ship">
-  <meta name="twitter:description" content="Not another full-page clone. Share screenshots without leaking emails.">
+  <meta name="twitter:title" content="Full Snap — Screenshot & Redact for Chrome">
+  <meta name="twitter:description" content="Full-page, region, and element screenshots with auto-redact and ship packs. Nothing uploads.">
   <meta name="twitter:image" content="https://ayaanrustagi.github.io/full-snap/og.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Full Snap",
-    "applicationCategory": "BrowserApplication",
-    "operatingSystem": "Chrome",
-    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "description": "Capture webpages, auto-redact sensitive data, annotate, and copy a report pack for Slack or Linear. Local-first Chrome extension.",
-    "url": "https://ayaanrustagi.github.io/full-snap/",
-    "image": "https://ayaanrustagi.github.io/full-snap/og.png"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Full Snap",
+        "url": "https://ayaanrustagi.github.io/full-snap/",
+        "description": "Free Chrome screenshot extension with auto-redact and report packs for Slack and Linear."
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Full Snap",
+        "applicationCategory": "BrowserApplication",
+        "applicationSubCategory": "Screenshot & annotation",
+        "operatingSystem": "Chrome, Edge, Brave, Arc",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "description": "Capture full page, visible, region, or element screenshots. Auto-redact emails and secrets, annotate with steps and blur, copy a ship pack for bug reports. Local-first Chrome extension.",
+        "url": "https://ayaanrustagi.github.io/full-snap/",
+        "image": "https://ayaanrustagi.github.io/full-snap/og.png",
+        "featureList": [
+          "Full page screenshot Chrome extension",
+          "Auto-redact emails phones cards passwords",
+          "Annotate screenshots with steps arrows blur",
+          "Copy report pack for Slack and Linear",
+          "Element and region capture",
+          "Local-only no upload"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Does Full Snap upload screenshots?",
+            "acceptedAnswer": { "@type": "Answer", "text": "No. Captures stay on your device. There is no Full Snap server for screenshots." }
+          },
+          {
+            "@type": "Question",
+            "name": "Is Full Snap a GoFullPage alternative?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Full Snap can full-page stitch, but is built for safe sharing: redaction, steps, and ship packs for bug reports — not long screenshots alone." }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I blur sensitive data in screenshots?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Yes. Auto-redact covers emails, phones, cards, and password fields before capture, plus a manual blur tool in the editor." }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="stylesheet" href="site.css">
@@ -93,7 +133,8 @@
           </h1>
 
           <p class="hero-sub reveal">
-            Not another full-page clone. Auto-hide emails &amp; secrets, number the steps, copy a report pack — nothing uploads.
+            Free Chrome screenshot extension for bug reports: full page, region, or element capture.
+            Auto-redact emails &amp; secrets, number the steps, copy a report pack for Slack or Linear — nothing uploads.
           </p>
 
           <div class="hero-cta reveal">

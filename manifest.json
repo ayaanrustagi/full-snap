@@ -3,7 +3,7 @@
   "name": "Full Snap — Capture, Redact & Ship",
   "short_name": "Full Snap",
   "version": "2.0.1",
-  "description": "Capture a page, auto-redact emails and secrets, mark steps, then copy a report pack for Slack or Linear. 100% local — nothing uploads.",
+  "description": "Screenshot full page, region, or element. Auto-redact secrets, annotate steps, copy a bug-report pack for Slack/Linear. Local-only — nothing uploads.",
   "homepage_url": "https://ayaanrustagi.github.io/full-snap/",
   "icons": {
     "16": "icons/icon16.png",
