@@ -325,30 +325,32 @@ code {
   font-family: var(--font-serif);
   font-weight: 400;
   font-size: clamp(3.2rem, 8vw, 5.75rem);
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: -0.03em;
-  max-width: 11ch;
+  max-width: 12ch;
+  text-align: center;
 }
 
 .hero-title-line {
   display: block;
 }
 
-/* Dedicated rotator row — same pattern as Clico's "Google Docs" line */
-.hero-rotate {
+/* Rotator is a title line — same size, tight stack with Capture / Redact / Ship */
+.hero-title .hero-rotate {
   position: relative;
+  display: block;
   z-index: 20;
   width: 100%;
-  max-width: 920px;
-  height: clamp(3.6rem, 9vw, 6.5rem);
-  margin-top: 0.35em;
+  height: 1em;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
-  font-family: var(--font-serif);
-  font-size: clamp(2.8rem, 7.5vw, 5.5rem);
-  font-weight: 400;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: inherit;
   font-style: italic;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: inherit;
   text-align: center;
 }
 
@@ -359,11 +361,11 @@ code {
   width: max-content;
   max-width: 100%;
   margin: 0;
-  padding: 0 8px;
+  padding: 0;
   color: #4285f4;
   opacity: 0;
-  transform: translate(-50%, calc(-50% + 12px));
-  filter: blur(4px);
+  transform: translate(-50%, calc(-50% + 0.12em));
+  filter: blur(3px);
   transition: opacity 380ms ease, transform 380ms ease, filter 380ms ease, color 200ms;
   pointer-events: none;
   white-space: nowrap;
