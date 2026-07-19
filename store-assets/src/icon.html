@@ -1,0 +1,30 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:128px; height:128px; overflow:hidden; background:transparent; }
+  .icon {
+    width:128px; height:128px;
+    background: #c1f04c;
+    border-radius: 28px;
+    display:flex; align-items:center; justify-content:center;
+    /* subtle inner depth */
+    box-shadow: inset 0 0 0 6px #0a0a0a;
+  }
+  svg { width:78px; height:78px; display:block; }
+</style>
+</head>
+<body>
+  <div class="icon">
+    <!-- Capture marquee + redaction bar = Full Snap -->
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- outer snap corners -->
+      <path d="M10 22 V12 H22" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter"/>
+      <path d="M42 12 H54 V22" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter"/>
+      <path d="M54 42 V54 H42" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter"/>
+      <path d="M22 54 H10 V42" stroke="#0a0a0a" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter"/>
+      <!-- redaction bar (product meaning) -->
+      <rect x="18" y="28" width="28" height="8" rx="1.5" fill="#0a0a0a"/>
+    </svg>
+  </div>
+</body></html>
