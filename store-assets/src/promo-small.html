@@ -1,0 +1,46 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:440px;height:280px;overflow:hidden;font-family:"Schibsted Grotesk",system-ui,sans-serif}
+  .wrap{
+    width:440px;height:280px;background:#c8bff5;padding:14px;
+    display:flex;align-items:stretch;justify-content:center;
+  }
+  .card{
+    flex:1;background:#f6f3ec;
+    background-image:
+      linear-gradient(to right,rgba(120,100,80,.12) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(120,100,80,.12) 1px,transparent 1px);
+    background-size:16px 16px;
+    border:2px solid #0a0a0a;box-shadow:4px 4px 0 #0a0a0a;
+    padding:18px 18px 16px;position:relative;display:flex;flex-direction:column;
+  }
+  .logo{font-size:11px;font-weight:900;letter-spacing:.08em;display:flex;align-items:center;gap:6px;margin-bottom:10px}
+  .logo i{width:9px;height:9px;border-radius:50%;background:#c1f04c;border:1.5px solid #0a0a0a;display:block}
+  h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:34px;line-height:.92;letter-spacing:-.03em}
+  h1 em{font-style:italic;color:#5b5bd6}
+  p{margin-top:10px;font-size:12px;font-weight:600;color:#3a352e;line-height:1.35;max-width:240px}
+  .pill{
+    margin-top:auto;align-self:flex-start;background:#c1f04c;border:2px solid #0a0a0a;
+    border-radius:999px;padding:8px 12px;font-weight:900;font-size:11px;box-shadow:2px 2px 0 #0a0a0a;
+  }
+  .badge{
+    position:absolute;top:12px;right:12px;width:64px;height:64px;border-radius:50%;
+    background:#c1f04c;border:2px solid #0a0a0a;box-shadow:2px 2px 0 #0a0a0a;
+    display:grid;place-items:center;text-align:center;font-weight:900;font-size:9px;
+    line-height:1.15;transform:rotate(8deg);
+  }
+</style></head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="badge">FREE<br>LOCAL</div>
+    <div class="logo"><i></i>FULL SNAP</div>
+    <h1>Capture.<br>Redact.<br><em>Ship.</em></h1>
+    <p>Hide secrets. Mark steps. Paste into Slack.</p>
+    <div class="pill">No upload</div>
+  </div>
+</div>
+</body></html>
