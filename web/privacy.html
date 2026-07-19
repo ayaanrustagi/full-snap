@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — Full Snap</title>
+  <meta name="description" content="Full Snap privacy policy. Local-first full-page screenshots. No cloud. No account.">
+  <meta name="theme-color" content="#C1F04C">
+  <link rel="icon" type="image/png" href="favicon-32.png">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body class="page-privacy">
+  <div class="page-shell">
+    <div class="site-frame">
+      <nav class="nav" aria-label="Primary">
+        <a class="nav-logo" href="index.html">
+          <img src="favicon-32.png" alt="" width="22" height="22">
+          FULL SNAP
+        </a>
+        <div class="nav-links">
+          <a href="index.html#how-it-works">Features</a>
+          <a href="index.html#privacy">Privacy</a>
+          <a href="index.html#faq">FAQ</a>
+        </div>
+        <div class="nav-actions">
+          <a class="btn btn-primary btn-sm" href="index.html#install">Under Review</a>
+        </div>
+      </nav>
+
+      <section class="section">
+        <div class="section-inner section-inner--narrow">
+          <div class="section-head reveal is-in">
+            <h2>Privacy</h2>
+            <p>Full Snap is local-first. This page is the whole story.</p>
+          </div>
+          <div class="prose reveal is-in">
+            <p>
+              Full Snap uses <strong>activeTab</strong> and <strong>scripting</strong> to scroll and capture the visible tab, then opens a local editor for annotation.
+            </p>
+            <p>
+              Capture data is held briefly in <code>chrome.storage.session</code> so the editor tab can stitch and draw. When you download a PNG, the file is written to your machine only.
+            </p>
+            <p>
+              There are no Full Snap servers. No account. No analytics SDKs in the extension for selling data. We do not upload page contents, screenshots, or annotations to a third party as part of the product.
+            </p>
+            <p>
+              Restricted Chrome pages (<code>chrome://</code>, Web Store, etc.) cannot be scripted by extensions; Full Snap targets normal http(s) websites.
+            </p>
+            <p style="margin-top:28px">
+              <a class="btn btn-secondary" href="index.html">← Back to Full Snap</a>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer-bottom">
+          <span>© Full Snap</span>
+          <span>Manifest V3 · Local-first</span>
+        </div>
+      </footer>
+    </div>
+  </div>
+  <script src="site.js" defer></script>
+</body>
+</html>

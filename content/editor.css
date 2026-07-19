@@ -1,0 +1,106 @@
+:root {
+  --amber: #b45309;
+  --deep: #92400e;
+  --paper: #fffbeb;
+  --ink: #451a03;
+  --line: #fcd34d;
+  --soft: #d97706;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #1c1917;
+  color: var(--ink);
+  min-height: 100vh;
+}
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+.tools, .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.tool, .ghost, .solid {
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.tool.on {
+  background: var(--amber);
+  color: white;
+  border-color: var(--amber);
+}
+.solid {
+  background: var(--amber);
+  color: white;
+  border-color: var(--amber);
+}
+.solid:hover, .tool.on:hover { background: var(--deep); border-color: var(--deep); }
+.ghost:hover { background: #fef3c7; }
+#color {
+  width: 36px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+#size { width: 100px; }
+.stage {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.wrap {
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  background: white;
+  max-width: 100%;
+}
+#base, #draw {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+#draw {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: crosshair;
+}
+.status {
+  color: #fbbf24;
+  font-size: 13px;
+  font-weight: 600;
+}

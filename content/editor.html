@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full Snap — Annotate</title>
+  <link rel="stylesheet" href="editor.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="brand">
+      <span class="dot"></span>
+      <strong>Full Snap</strong>
+    </div>
+    <div class="tools">
+      <button type="button" data-tool="pen" class="tool on">Pen</button>
+      <button type="button" data-tool="hi" class="tool">Highlight</button>
+      <button type="button" data-tool="rect" class="tool">Box</button>
+      <button type="button" data-tool="erase" class="tool">Eraser</button>
+      <input type="color" id="color" value="#b45309" title="Color" />
+      <input type="range" id="size" min="2" max="40" value="4" title="Size" />
+    </div>
+    <div class="actions">
+      <button type="button" id="undo" class="ghost">Undo</button>
+      <button type="button" id="download" class="solid">Download PNG</button>
+    </div>
+  </header>
+  <main class="stage">
+    <div class="wrap" id="wrap">
+      <canvas id="base"></canvas>
+      <canvas id="draw"></canvas>
+    </div>
+    <p class="status" id="status">Stitching page…</p>
+  </main>
+  <script src="editor.js"></script>
+</body>
+</html>
