@@ -1,0 +1,73 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{width:1280px;height:800px;overflow:hidden;font-family:"Schibsted Grotesk",system-ui,sans-serif;
+    background:#c8bff5;color:#0a0a0a}
+  .shell{width:1280px;height:800px;padding:28px;display:flex;align-items:center;justify-content:center}
+  .frame{width:1224px;height:744px;background:#f6f3ec;
+    background-image:linear-gradient(to right,rgba(120,100,80,.1) 1px,transparent 1px),
+      linear-gradient(to bottom,rgba(120,100,80,.1) 1px,transparent 1px);
+    background-size:24px 24px;border:2px solid #0a0a0a;box-shadow:6px 6px 0 #0a0a0a;
+    display:grid;grid-template-columns:1fr 300px;overflow:hidden}
+  .main{padding:36px 40px;display:flex;flex-direction:column;justify-content:center}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1.5px solid #0a0a0a;
+    border-radius:999px;background:#fff;box-shadow:2px 2px 0 #0a0a0a;font-size:12px;font-weight:700;
+    width:fit-content;margin-bottom:18px}
+  .pill b{background:#c1f04c;padding:2px 6px;border-radius:4px}
+  h1{font-family:"Instrument Serif",Georgia,serif;font-weight:400;font-size:72px;line-height:.92;
+    letter-spacing:-.03em;margin-bottom:16px}
+  h1 em{font-style:italic;color:#5b5bd6}
+  .sub{font-size:18px;font-weight:600;color:#3a352e;max-width:480px;line-height:1.45;margin-bottom:28px}
+  .row{display:flex;gap:12px}
+  .btn{border:2px solid #0a0a0a;border-radius:8px;padding:14px 22px;font-weight:800;font-size:15px;
+    box-shadow:3px 3px 0 #0a0a0a}
+  .btn.p{background:#c1f04c}
+  .btn.g{background:#fff}
+  .rail{border-left:2px solid #0a0a0a;background:#fffdf8;padding:28px 22px}
+  .rail h3{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#b45309;margin-bottom:12px}
+  .mock{border:2px solid #0a0a0a;border-radius:12px;overflow:hidden;box-shadow:4px 4px 0 #0a0a0a;margin-bottom:16px}
+  .mock-top{background:#f6f3ec;border-bottom:1.5px solid #0a0a0a;padding:8px 10px;font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700}
+  .mock-body{padding:14px;background:#fff;min-height:160px;position:relative}
+  .line{height:8px;background:#e8e4dc;border-radius:4px;margin-bottom:8px}
+  .line.w60{width:60%}.line.w80{width:80%}.line.w40{width:40%}
+  .redact{position:absolute;left:14px;top:52px;width:140px;height:16px;background:#0a0a0a;border-radius:3px;
+    box-shadow:0 0 0 1px rgba(193,240,76,.5)}
+  .step{position:absolute;right:18px;top:40px;width:28px;height:28px;border-radius:50%;background:#b45309;
+    border:2px solid #0a0a0a;color:#fff;font-weight:800;font-size:13px;display:grid;place-items:center}
+  .arrow{position:absolute;left:40px;bottom:28px;width:90px;height:3px;background:#5b5bd6;transform:rotate(-18deg)}
+  .arrow:after{content:"";position:absolute;right:-2px;top:-5px;border:6px solid transparent;border-left-color:#5b5bd6}
+  .meta{font-size:12px;line-height:1.5;color:#5a5a5a;margin-bottom:14px}
+  .ship{width:100%;border:2px solid #0a0a0a;background:#c1f04c;border-radius:10px;padding:12px;
+    font-weight:800;font-size:13px;box-shadow:2px 2px 0 #0a0a0a;text-align:center}
+</style></head>
+<body>
+<div class="shell"><div class="frame">
+  <div class="main">
+    <div class="pill"><b>Ship a report</b> · auto-redact · local</div>
+    <h1>Capture.<br>Redact.<br><em>Ship.</em></h1>
+    <p class="sub">Hide emails and secrets. Number the steps. Paste into Slack or Linear — nothing uploads.</p>
+    <div class="row">
+      <div class="btn p">Ship a report</div>
+      <div class="btn g">Element · Region · Full</div>
+    </div>
+  </div>
+  <aside class="rail">
+    <h3>Editor preview</h3>
+    <div class="mock">
+      <div class="mock-top">checkout.example.com</div>
+      <div class="mock-body">
+        <div class="line w80"></div>
+        <div class="line w60"></div>
+        <div class="redact" title="redacted email"></div>
+        <div class="line w40" style="margin-top:28px"></div>
+        <div class="step">1</div>
+        <div class="arrow"></div>
+      </div>
+    </div>
+    <p class="meta"><strong style="color:#0a0a0a">Report pack</strong><br>Image + URL + steps ready to paste.</p>
+    <div class="ship">Copy ship pack</div>
+  </aside>
+</div></div>
+</body></html>
