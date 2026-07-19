@@ -327,7 +327,8 @@ code {
   font-size: clamp(3.2rem, 8vw, 5.75rem);
   line-height: 0.95;
   letter-spacing: -0.03em;
-  max-width: 12ch;
+  max-width: none;
+  width: 100%;
   text-align: center;
 }
 
@@ -335,21 +336,23 @@ code {
   display: block;
 }
 
-/* Rotator is a title line — same size, tight stack with Capture / Redact / Ship */
+/* Rotator: full hero width so long phrases aren't clipped */
 .hero-title .hero-rotate {
   position: relative;
   display: block;
   z-index: 20;
   width: 100%;
-  height: 1em;
-  margin: 0;
-  padding: 0;
+  max-width: none;
+  /* room for italic overflow + blur, still tight under "Ship" */
+  height: 1.12em;
+  margin: 0.02em 0 0;
+  padding: 0 0.1em;
   overflow: hidden;
   font-family: inherit;
   font-size: 1em;
   font-weight: inherit;
   font-style: italic;
-  line-height: 1;
+  line-height: 1.12;
   letter-spacing: inherit;
   text-align: center;
 }
@@ -359,16 +362,17 @@ code {
   left: 50%;
   top: 50%;
   width: max-content;
-  max-width: 100%;
+  max-width: min(100%, 18ch);
   margin: 0;
-  padding: 0;
+  padding: 0 0.15em;
   color: #4285f4;
   opacity: 0;
-  transform: translate(-50%, calc(-50% + 0.12em));
+  transform: translate(-50%, calc(-50% + 0.1em));
   filter: blur(3px);
   transition: opacity 380ms ease, transform 380ms ease, filter 380ms ease, color 200ms;
   pointer-events: none;
   white-space: nowrap;
+  overflow: visible;
 }
 
 .rotate-item.is-active {
