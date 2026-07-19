@@ -8,11 +8,57 @@
 <body>
   <div class="app">
     <p class="eyebrow">full snap</p>
-    <h1>Full-page shot</h1>
-    <p class="lede">Capture the entire page, annotate, download PNG.</p>
-    <button type="button" id="go" class="btn">Capture page</button>
+    <h1>Capture · Redact · Ship</h1>
+    <p class="lede">Not another full-page tool. Build a <em>shareable report</em> — secrets covered, steps marked, paste into Slack or Linear.</p>
+
+    <button type="button" id="go-report" class="btn primary">
+      Ship a report
+      <span>Visible + auto-redact → annotate → copy pack</span>
+    </button>
+
+    <div class="grid-btns">
+      <button type="button" class="btn secondary" data-mode="element">Element</button>
+      <button type="button" class="btn secondary" data-mode="region">Region</button>
+      <button type="button" class="btn secondary" data-mode="full">Full page</button>
+      <button type="button" class="btn secondary" data-mode="visible">Visible only</button>
+    </div>
+
+    <div class="opts">
+      <label class="toggle">
+        <input type="checkbox" id="redact" checked />
+        <span>Auto-redact emails, phones, cards, passwords</span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="hide-fixed" checked />
+        <span>Hide sticky headers</span>
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="stamp" checked />
+        <span>Stamp URL + time on export</span>
+      </label>
+      <label class="opt">
+        <span>Delay</span>
+        <select id="delay">
+          <option value="0">None</option>
+          <option value="1">1s</option>
+          <option value="2">2s</option>
+          <option value="3">3s</option>
+        </select>
+      </label>
+    </div>
+
     <p class="err" id="err"></p>
-    <p class="hint">Works on normal websites. Not on chrome:// pages.</p>
+
+    <div class="keys">
+      <div><kbd>⌥⇧S</kbd> report</div>
+      <div><kbd>⌥⇧E</kbd> element</div>
+      <div><kbd>⌥⇧R</kbd> region</div>
+    </div>
+
+    <div class="history" id="history" hidden>
+      <p class="hist-label">Recent</p>
+      <ul id="hist-list"></ul>
+    </div>
   </div>
   <script src="popup.js"></script>
 </body>

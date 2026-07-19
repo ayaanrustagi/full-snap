@@ -1,58 +1,183 @@
 :root {
+  --ink: #0a0a0a;
+  --paper: #f6f3ec;
+  --lime: #c1f04c;
+  --soft: #5a5a5a;
+  --line: #0a0a0a;
+  --white: #fff;
   --amber: #b45309;
-  --deep: #92400e;
-  --paper: #fffbeb;
-  --ink: #451a03;
-  --line: #fcd34d;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
-  width: 280px;
+  width: 320px;
   font-family: "Segoe UI", system-ui, sans-serif;
   background: var(--paper);
   color: var(--ink);
 }
-.app { padding: 18px 16px 16px; }
+.app { padding: 16px 14px 14px; }
 .eyebrow {
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--amber);
 }
 h1 {
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: -0.03em;
-  margin: 4px 0 8px;
+  margin: 6px 0 8px;
+  line-height: 1.15;
 }
 .lede {
-  font-size: 13px;
-  line-height: 1.4;
-  opacity: 0.85;
-  margin-bottom: 16px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--soft);
+  margin-bottom: 14px;
+}
+.lede em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--lime);
+  padding: 0 4px;
 }
 .btn {
+  display: block;
   width: 100%;
-  border: none;
-  background: var(--amber);
-  color: white;
-  font-weight: 700;
-  font-size: 13px;
-  padding: 12px;
-  border-radius: 999px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
   cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: transform 120ms, box-shadow 120ms;
 }
-.btn:hover { background: var(--deep); }
-.btn:disabled { opacity: 0.6; cursor: wait; }
+.btn:hover:not(:disabled) {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--line);
+}
+.btn:disabled { opacity: 0.65; cursor: wait; }
+.btn.primary {
+  background: var(--lime);
+  color: var(--ink);
+  padding: 14px 14px;
+  font-weight: 800;
+  font-size: 14px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 0 var(--line);
+}
+.btn.primary span {
+  display: block;
+  font-weight: 600;
+  font-size: 11px;
+  opacity: 0.75;
+  margin-top: 4px;
+}
+.grid-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.btn.secondary {
+  background: var(--white);
+  padding: 10px 12px;
+  font-weight: 700;
+  font-size: 12px;
+  box-shadow: 1px 1px 0 var(--line);
+}
+.opts {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 10px;
+  background: var(--white);
+  border: 1.5px solid rgba(10,10,10,0.12);
+  border-radius: 12px;
+}
+.toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12px;
+  line-height: 1.35;
+  cursor: pointer;
+  font-weight: 600;
+}
+.toggle input { margin-top: 2px; }
+.opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--soft);
+}
+.opt select {
+  font: inherit;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  border-radius: 8px;
+  padding: 5px 8px;
+  background: white;
+}
 .err {
-  margin-top: 10px;
+  min-height: 16px;
   font-size: 12px;
   color: #b91c1c;
-  min-height: 16px;
+  margin: 6px 0;
 }
-.hint {
+.keys {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--soft);
+  text-align: center;
+  margin-top: 4px;
+}
+kbd {
+  display: inline-block;
+  font: 700 10px/1 ui-monospace, monospace;
+  background: white;
+  border: 1px solid rgba(10,10,10,0.2);
+  border-radius: 4px;
+  padding: 2px 4px;
+  margin-right: 2px;
+  color: var(--ink);
+}
+.history {
   margin-top: 12px;
+  border-top: 1px solid rgba(10,10,10,0.12);
+  padding-top: 10px;
+}
+.hist-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin-bottom: 6px;
+}
+#hist-list {
+  list-style: none;
+  max-height: 100px;
+  overflow: auto;
+}
+#hist-list li {
   font-size: 11px;
-  color: var(--amber);
-  line-height: 1.4;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(10,10,10,0.06);
+  color: var(--soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#hist-list strong {
+  color: var(--ink);
+  font-weight: 700;
 }

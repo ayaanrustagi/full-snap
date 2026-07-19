@@ -3,35 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Full Snap — Annotate</title>
+  <title>Full Snap — Ship report</title>
   <link rel="stylesheet" href="editor.css" />
 </head>
 <body>
   <header class="bar">
     <div class="brand">
       <span class="dot"></span>
-      <strong>Full Snap</strong>
+      <div>
+        <strong>Full Snap</strong>
+        <span class="dim" id="dims"></span>
+      </div>
     </div>
-    <div class="tools">
-      <button type="button" data-tool="pen" class="tool on">Pen</button>
-      <button type="button" data-tool="hi" class="tool">Highlight</button>
-      <button type="button" data-tool="rect" class="tool">Box</button>
-      <button type="button" data-tool="erase" class="tool">Eraser</button>
-      <input type="color" id="color" value="#b45309" title="Color" />
-      <input type="range" id="size" min="2" max="40" value="4" title="Size" />
+
+    <div class="tools" role="toolbar" aria-label="Tools">
+      <button type="button" data-tool="pen" class="tool on" title="Pen (1)">Pen</button>
+      <button type="button" data-tool="hi" class="tool" title="Highlight (2)">Hi</button>
+      <button type="button" data-tool="arrow" class="tool" title="Arrow (3)">Arrow</button>
+      <button type="button" data-tool="rect" class="tool" title="Box (4)">Box</button>
+      <button type="button" data-tool="num" class="tool" title="Step (5)">Step</button>
+      <button type="button" data-tool="text" class="tool" title="Text (6)">Text</button>
+      <button type="button" data-tool="blur" class="tool" title="Blur (7)">Blur</button>
+      <button type="button" data-tool="erase" class="tool" title="Eraser (8)">Erase</button>
+      <label class="swatch"><input type="color" id="color" value="#b45309" /></label>
+      <input type="range" id="size" min="2" max="48" value="6" title="Size" />
     </div>
+
     <div class="actions">
       <button type="button" id="undo" class="ghost">Undo</button>
-      <button type="button" id="download" class="solid">Download PNG</button>
+      <button type="button" id="redo" class="ghost">Redo</button>
+      <button type="button" id="copy" class="ghost">Copy image</button>
+      <button type="button" id="ship" class="solid ship">Ship pack</button>
+      <button type="button" id="download" class="ghost">PNG</button>
+      <button type="button" id="download-jpg" class="ghost">JPG</button>
     </div>
   </header>
+
+  <aside class="rail" id="rail">
+    <p class="rail-title">Report pack</p>
+    <p class="rail-meta" id="rail-meta">—</p>
+    <p class="rail-note" id="rail-redact"></p>
+    <label class="field">
+      <span>What broke / what to look at</span>
+      <textarea id="report-note" rows="3" placeholder="e.g. Checkout fails when promo code is applied"></textarea>
+    </label>
+    <label class="field">
+      <span>Steps already marked on image</span>
+      <input type="text" id="step-hint" readonly value="Use the Step tool (①) on the canvas" />
+    </label>
+    <button type="button" id="ship-rail" class="solid full">Copy image + report text</button>
+    <p class="rail-help">Pastes image on most apps. Report text also copied so you can paste again for the write-up.</p>
+  </aside>
+
   <main class="stage">
     <div class="wrap" id="wrap">
       <canvas id="base"></canvas>
       <canvas id="draw"></canvas>
+      <canvas id="overlay"></canvas>
     </div>
-    <p class="status" id="status">Stitching page…</p>
+    <p class="status" id="status">Loading capture…</p>
+    <p class="toast" id="toast" hidden></p>
   </main>
+
+  <div id="text-modal" class="modal" hidden>
+    <div class="modal-card">
+      <h2>Add text</h2>
+      <textarea id="text-input" rows="3" placeholder="Callout…"></textarea>
+      <div class="modal-actions">
+        <button type="button" id="text-cancel" class="ghost">Cancel</button>
+        <button type="button" id="text-ok" class="solid">Place</button>
+      </div>
+    </div>
+  </div>
+
   <script src="editor.js"></script>
 </body>
 </html>

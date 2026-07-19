@@ -1,106 +1,277 @@
 :root {
+  --ink: #0a0a0a;
+  --paper: #f6f3ec;
+  --lime: #c1f04c;
   --amber: #b45309;
   --deep: #92400e;
-  --paper: #fffbeb;
-  --ink: #451a03;
-  --line: #fcd34d;
-  --soft: #d97706;
+  --dark: #1c1917;
+  --soft: #5a5a5a;
+  --white: #fff;
+  --rail: 280px;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
   font-family: "Segoe UI", system-ui, sans-serif;
-  background: #1c1917;
+  background: var(--dark);
   color: var(--ink);
   min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr var(--rail);
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "bar bar"
+    "stage rail";
 }
 .bar {
+  grid-area: bar;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 10px 14px;
   background: var(--paper);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--ink);
 }
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 10px;
+  min-width: 120px;
+}
+.brand strong { display: block; font-size: 14px; }
+.brand .dim {
+  font-size: 11px;
+  color: var(--soft);
+  font-weight: 600;
 }
 .dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--amber);
+  background: var(--lime);
+  border: 1.5px solid var(--ink);
+  flex-shrink: 0;
 }
 .tools, .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
 }
 .tool, .ghost, .solid {
-  border: 1px solid var(--line);
+  border: 1.5px solid var(--ink);
   background: white;
   color: var(--ink);
   border-radius: 999px;
-  padding: 8px 12px;
+  padding: 7px 11px;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  box-shadow: 2px 2px 0 var(--ink);
+  transition: transform 100ms, box-shadow 100ms, background 100ms;
+}
+.tool:hover, .ghost:hover, .solid:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 .tool.on {
   background: var(--amber);
   color: white;
-  border-color: var(--amber);
 }
 .solid {
-  background: var(--amber);
-  color: white;
-  border-color: var(--amber);
+  background: var(--lime);
+  color: var(--ink);
 }
-.solid:hover, .tool.on:hover { background: var(--deep); border-color: var(--deep); }
-.ghost:hover { background: #fef3c7; }
-#color {
-  width: 36px;
-  height: 32px;
-  border: 1px solid var(--line);
+.solid.ship {
+  font-weight: 800;
+}
+.swatch {
+  width: 34px;
+  height: 30px;
+  border: 1.5px solid var(--ink);
   border-radius: 8px;
-  background: white;
+  overflow: hidden;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+#color {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
   cursor: pointer;
 }
-#size { width: 100px; }
+#size { width: 88px; accent-color: var(--amber); }
+
+.rail {
+  grid-area: rail;
+  background: var(--paper);
+  border-left: 2px solid var(--ink);
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 0px);
+  overflow: auto;
+}
+.rail-title {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.rail-meta {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--soft);
+  word-break: break-all;
+}
+.rail-note {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--lime);
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1.5px solid var(--ink);
+}
+.rail-note:empty { display: none; }
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.field textarea, .field input {
+  font: 600 12px/1.4 system-ui, sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--ink);
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  padding: 10px;
+  background: white;
+  resize: vertical;
+}
+.field input[readonly] {
+  background: #f0ede6;
+  color: var(--soft);
+}
+.solid.full {
+  width: 100%;
+  border-radius: 12px;
+  padding: 12px;
+  margin-top: 4px;
+}
+.rail-help {
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--soft);
+}
+
 .stage {
+  grid-area: stage;
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
+  overflow: auto;
 }
 .wrap {
   position: relative;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
   background: white;
   max-width: 100%;
+  border: 2px solid var(--ink);
 }
-#base, #draw {
+#base, #draw, #overlay {
   display: block;
   max-width: 100%;
   height: auto;
 }
-#draw {
+#draw, #overlay {
   position: absolute;
   left: 0;
   top: 0;
-  cursor: crosshair;
 }
+#draw { cursor: crosshair; }
+#overlay { pointer-events: none; }
 .status {
   color: #fbbf24;
   font-size: 13px;
   font-weight: 600;
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--lime);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 800;
+  font-size: 13px;
+  z-index: 50;
+}
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: grid;
+  place-items: center;
+  z-index: 40;
+}
+.modal[hidden] { display: none !important; }
+.modal-card {
+  width: min(400px, 92vw);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  border-radius: 14px;
+  padding: 18px;
+}
+.modal-card h2 { font-size: 18px; margin-bottom: 10px; }
+.modal-card textarea {
+  width: 100%;
+  border: 1.5px solid var(--ink);
+  border-radius: 10px;
+  padding: 10px;
+  font: inherit;
+  resize: vertical;
+  margin-bottom: 12px;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+@media (max-width: 960px) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "bar"
+      "rail"
+      "stage";
+  }
+  .rail {
+    position: relative;
+    height: auto;
+    border-left: 0;
+    border-bottom: 2px solid var(--ink);
+  }
 }
