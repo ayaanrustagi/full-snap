@@ -120,12 +120,12 @@
     if (!items.length) return;
 
     var urls = [
-      "example.com/docs/long-page",
-      "example.com/design#annotate",
-      "download · full-snap-page.png",
-      "notion.so · github.com · figma.com",
+      "shop.example.com/cart · ship report",
+      "redact · emails · cards · secrets",
+      "annotate · steps · arrows · blur",
+      "element · region · full page",
+      "ship pack · Slack · Linear",
       "chrome.storage.session · local only",
-      "capture → mark → download",
     ];
 
     var copies = items.map(function (btn) {

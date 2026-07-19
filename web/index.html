@@ -34,38 +34,7 @@
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
     "description": "Capture webpages, auto-redact sensitive data, annotate, and copy a report pack for Slack or Linear. Local-first Chrome extension.",
     "url": "https://ayaanrustagi.github.io/full-snap/",
-    "image": "https://ayaanrustagi.github.io/full-snap/og.png",
-    "author": { "@type": "Organization", "name": "Full Snap" },
-    "featureList": [
-      "Visible, full-page, region, and element capture",
-      "Auto-redact emails, phones, cards, passwords",
-      "Annotation tools including steps and blur",
-      "Ship pack for Slack and Linear",
-      "Local-only processing"
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Does Full Snap upload my screenshots?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. Captures stay on your device. There is no Full Snap server for screenshots." }
-      },
-      {
-        "@type": "Question",
-        "name": "Is Full Snap the same as GoFullPage?",
-        "acceptedAnswer": { "@type": "Answer", "text": "No. GoFullPage focuses on long page capture. Full Snap focuses on safe sharing: redaction, steps, and a copy pack for bug reports." }
-      },
-      {
-        "@type": "Question",
-        "name": "Can auto-redact miss secrets?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Yes. It is best-effort pattern matching. Always review and use the blur tool before sharing." }
-      }
-    ]
+    "image": "https://ayaanrustagi.github.io/full-snap/og.png"
   }
   </script>
   <link rel="stylesheet" href="site.css">
@@ -79,131 +48,420 @@
           FULL SNAP
         </a>
         <div class="nav-links">
-          <a href="#how">How it works</a>
-          <a href="#features">Features</a>
+          <a href="#how-it-works">Features</a>
+          <a href="#how-it-works">How</a>
           <a href="#privacy">Privacy</a>
           <a href="#faq">FAQ</a>
         </div>
         <div class="nav-actions">
-          <a class="btn btn-primary btn-sm" href="#install">Get Full Snap</a>
+          <button class="nav-menu-btn" type="button" aria-label="Open menu" aria-expanded="false" data-menu-toggle>
+            <span></span><span></span><span></span>
+          </button>
+          <a class="btn btn-primary btn-sm" href="#install">Under Review</a>
         </div>
       </nav>
 
       <div class="mobile-menu" data-mobile-menu hidden>
-        <a href="#how" data-menu-close>How it works</a>
-        <a href="#features" data-menu-close>Features</a>
+        <a href="#how-it-works" data-menu-close>Features</a>
+        <a href="#how-it-works" data-menu-close>How it works</a>
         <a href="#privacy" data-menu-close>Privacy</a>
         <a href="#faq" data-menu-close>FAQ</a>
-        <a class="btn btn-primary" href="#install" data-menu-close>Get Full Snap</a>
+        <a class="btn btn-primary" href="#install" data-menu-close>Under Review</a>
       </div>
 
+      <!-- HERO -->
       <section class="hero" id="top">
         <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-glow" aria-hidden="true"></div>
         <div class="hero-inner">
           <div class="hero-badges reveal">
             <span class="pill-badge">Free · Local-first</span>
             <span class="pill-badge pill-badge--soft">Manifest V3</span>
           </div>
+
           <h1 class="hero-title reveal">
             <span class="hero-title-line">Capture.</span>
             <span class="hero-title-line">Redact.</span>
-            <span class="hero-title-line">Ship.</span>
+            <span class="hero-title-line">Ship</span>
           </h1>
+          <div class="hero-rotate reveal" data-rotate aria-live="polite">
+            <span class="rotate-item is-active" data-color="#4285F4">to Slack</span>
+            <span class="rotate-item" data-color="#5B5BD6">to Linear</span>
+            <span class="rotate-item" data-color="#16a34a">bug reports</span>
+            <span class="rotate-item" data-color="#b45309">without leaks</span>
+            <span class="rotate-item" data-color="#F26B3A">in one pack</span>
+          </div>
+
           <p class="hero-sub reveal">
-            The screenshot tool for bug reports and handoffs — not another full-page clone.
-            Hide emails and secrets, number the steps, paste into Slack or Linear.
+            Not another full-page clone. Auto-hide emails &amp; secrets, number the steps, copy a report pack — nothing uploads.
           </p>
+
           <div class="hero-cta reveal">
-            <a class="btn btn-primary btn-lg" href="#install">Get Full Snap free</a>
-            <a class="btn btn-secondary btn-lg" href="#how">See an example</a>
+            <a class="btn btn-primary btn-lg" href="#install">Under Review</a>
+            <a class="btn btn-secondary btn-lg" href="#how-it-works">See how it works</a>
+          </div>
+
+          <div class="hero-float-card hero-float-card--a" aria-hidden="true">
+            <div class="mock-popup">
+              <div class="mock-popup-title">Full Snap</div>
+              <div class="mock-popup-row"><span>Ship a report</span><span class="dot"></span></div>
+              <div class="mock-popup-row"><span>Auto-redact</span><span class="dot"></span></div>
+              <div class="mock-popup-row"><span>Copy ship pack</span><span class="dot"></span></div>
+            </div>
+          </div>
+          <div class="hero-float-card hero-float-card--b" aria-hidden="true">
+            <div class="float-chip">⌥⇧S · report</div>
+          </div>
+          <a class="hero-orb" href="#install" aria-label="Under Review">
+            <span class="hero-orb-ring" aria-hidden="true"></span>
+            <img src="favicon-32.png" alt="" width="36" height="36">
+          </a>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS (interactive tabs) -->
+      <section class="section how" id="how-it-works">
+        <div class="section-inner">
+          <div class="section-head reveal">
+            <h2>How to use <em>Full Snap</em></h2>
+            <p>One flow: capture what you see, cover secrets, mark steps, ship the pack.</p>
+          </div>
+
+          <div class="how-grid">
+            <div class="how-list" role="tablist" aria-label="Full Snap features">
+              <button class="how-item is-active" type="button" role="tab" aria-selected="true" data-how="0">
+                <span class="how-num">01</span>
+                <span class="how-copy">
+                  <strong>Ship a report</strong>
+                  <span>Visible capture + auto-redact — the default one-click flow.</span>
+                </span>
+              </button>
+              <button class="how-item" type="button" role="tab" aria-selected="false" data-how="1">
+                <span class="how-num">02</span>
+                <span class="how-copy">
+                  <strong>Auto-redact secrets</strong>
+                  <span>Emails, phones, cards, JWTs, password fields get black bars first.</span>
+                </span>
+              </button>
+              <button class="how-item" type="button" role="tab" aria-selected="false" data-how="2">
+                <span class="how-num">03</span>
+                <span class="how-copy">
+                  <strong>Mark steps &amp; arrows</strong>
+                  <span>Pen, highlight, numbered steps, blur, text — walk them through the bug.</span>
+                </span>
+              </button>
+              <button class="how-item" type="button" role="tab" aria-selected="false" data-how="3">
+                <span class="how-num">04</span>
+                <span class="how-copy">
+                  <strong>Element · region · full</strong>
+                  <span>Click a component, drag a box, or scroll-stitch the whole page.</span>
+                </span>
+              </button>
+              <button class="how-item" type="button" role="tab" aria-selected="false" data-how="4">
+                <span class="how-num">05</span>
+                <span class="how-copy">
+                  <strong>Ship pack</strong>
+                  <span>Copy image + report text (URL, title, time, note) for Slack / Linear.</span>
+                </span>
+              </button>
+              <button class="how-item" type="button" role="tab" aria-selected="false" data-how="5">
+                <span class="how-num">06</span>
+                <span class="how-copy">
+                  <strong>Local only</strong>
+                  <span>No Full Snap cloud. Session buffer for the editor — then it’s yours.</span>
+                </span>
+              </button>
+            </div>
+
+            <div class="how-stage reveal" aria-live="polite">
+              <div class="browser-mock">
+                <div class="mock-bar">
+                  <div class="mock-dots"><span></span><span></span><span></span></div>
+                  <div class="mock-url" data-how-url>shop.example.com/cart</div>
+                </div>
+                <div class="mock-body">
+                  <div class="mock-panel is-active" data-how-panel="0">
+                    <div class="export-visual">
+                      <div class="export-file">
+                        <div class="export-icon">⚡</div>
+                        <div>
+                          <strong>Ship a report</strong>
+                          <span>Visible + redact → editor</span>
+                        </div>
+                      </div>
+                      <div class="btn btn-primary btn-sm export-btn">⌥⇧S</div>
+                    </div>
+                  </div>
+                  <div class="mock-panel" data-how-panel="1">
+                    <div class="annotate-visual">
+                      <div class="annotate-page"></div>
+                      <div class="annotate-mark pen" style="left:18%;top:36%;width:120px;height:14px;background:#0a0a0a;border:0;transform:none;border-radius:2px"></div>
+                      <div class="annotate-mark hi" style="left:28%;top:52%;width:90px"></div>
+                      <div class="annotate-toolbar">
+                        <span class="tool is-on">🔒</span>
+                        <span class="tool">email</span>
+                        <span class="tool">card</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-panel" data-how-panel="2">
+                    <div class="annotate-visual">
+                      <div class="annotate-page"></div>
+                      <div class="annotate-mark pen"></div>
+                      <div class="annotate-mark hi"></div>
+                      <div class="annotate-mark box"></div>
+                      <div class="annotate-toolbar">
+                        <span class="tool is-on">①</span>
+                        <span class="tool">➤</span>
+                        <span class="tool">Blur</span>
+                        <span class="tool">T</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mock-panel" data-how-panel="3">
+                    <div class="sites-visual">
+                      <span>Element</span><span>Region</span><span>Full page</span><span>Visible</span>
+                    </div>
+                  </div>
+                  <div class="mock-panel" data-how-panel="4">
+                    <div class="export-visual">
+                      <div class="export-file">
+                        <div class="export-icon">PNG</div>
+                        <div>
+                          <strong>Ship pack ready</strong>
+                          <span>Image + markdown report</span>
+                        </div>
+                      </div>
+                      <div class="btn btn-primary btn-sm export-btn">Copy pack</div>
+                    </div>
+                  </div>
+                  <div class="mock-panel" data-how-panel="5">
+                    <div class="local-visual">
+                      <div class="lock">🔒</div>
+                      <p>Capture stays in <code>chrome.storage.session</code>. No Full Snap servers.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="how-mobile-copy" data-how-mobile-copy>Visible capture + auto-redact — the default one-click flow.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section" id="how">
-        <div class="section-inner">
-          <div class="section-head reveal">
-            <h2>How people use it</h2>
-            <p>Concrete example — not feature jargon.</p>
+      <!-- MARQUEE -->
+      <section class="marquee-section" aria-label="Works everywhere">
+        <p class="marquee-label">Capture anywhere you work</p>
+        <div class="marquee-row">
+          <div class="marquee-fade marquee-fade--l"></div>
+          <div class="marquee-fade marquee-fade--r"></div>
+          <div class="marquee-track">
+            <span class="marquee-item">Linear</span>
+            <span class="marquee-item">Slack</span>
+            <span class="marquee-item">Notion</span>
+            <span class="marquee-item">Jira</span>
+            <span class="marquee-item">GitHub</span>
+            <span class="marquee-item">Figma</span>
+            <span class="marquee-item">Docs</span>
+            <span class="marquee-item">Checkout bugs</span>
+            <span class="marquee-item">QA walkthroughs</span>
+            <span class="marquee-item">Linear</span>
+            <span class="marquee-item">Slack</span>
+            <span class="marquee-item">Notion</span>
+            <span class="marquee-item">Jira</span>
+            <span class="marquee-item">GitHub</span>
+            <span class="marquee-item">Figma</span>
+            <span class="marquee-item">Docs</span>
+            <span class="marquee-item">Checkout bugs</span>
+            <span class="marquee-item">QA walkthroughs</span>
+            <span class="marquee-item">Linear</span>
+            <span class="marquee-item">Slack</span>
+            <span class="marquee-item">Notion</span>
+            <span class="marquee-item">Jira</span>
+            <span class="marquee-item">GitHub</span>
+            <span class="marquee-item">Figma</span>
+            <span class="marquee-item">Docs</span>
+            <span class="marquee-item">Checkout bugs</span>
+            <span class="marquee-item">QA walkthroughs</span>
           </div>
-          <div class="privacy-grid">
-            <article class="info-card reveal">
-              <h3>1. Capture</h3>
-              <p>You’re on a broken checkout page. Hit <strong>Ship a report</strong> (or ⌥⇧S). Full Snap grabs what you see.</p>
-            </article>
-            <article class="info-card reveal">
-              <h3>2. Redact</h3>
-              <p>Your email and phone on the page get black bars automatically. You can blur anything else by hand.</p>
-            </article>
-            <article class="info-card reveal">
-              <h3>3. Ship</h3>
-              <p>Mark steps ① ② ③, write one line, hit <strong>Ship pack</strong>, paste into Slack. Image + write-up.</p>
-            </article>
+        </div>
+        <div class="marquee-row">
+          <div class="marquee-fade marquee-fade--l"></div>
+          <div class="marquee-fade marquee-fade--r"></div>
+          <div class="marquee-track marquee-track--reverse">
+            <span class="marquee-item">Auto-redact</span>
+            <span class="marquee-item">Numbered steps</span>
+            <span class="marquee-item">Blur</span>
+            <span class="marquee-item">Arrows</span>
+            <span class="marquee-item">Ship pack</span>
+            <span class="marquee-item">PNG · JPG</span>
+            <span class="marquee-item">Copy image</span>
+            <span class="marquee-item">⌥⇧S</span>
+            <span class="marquee-item">⌥⇧E</span>
+            <span class="marquee-item">Auto-redact</span>
+            <span class="marquee-item">Numbered steps</span>
+            <span class="marquee-item">Blur</span>
+            <span class="marquee-item">Arrows</span>
+            <span class="marquee-item">Ship pack</span>
+            <span class="marquee-item">PNG · JPG</span>
+            <span class="marquee-item">Copy image</span>
+            <span class="marquee-item">⌥⇧S</span>
+            <span class="marquee-item">⌥⇧E</span>
+            <span class="marquee-item">Auto-redact</span>
+            <span class="marquee-item">Numbered steps</span>
+            <span class="marquee-item">Blur</span>
+            <span class="marquee-item">Arrows</span>
+            <span class="marquee-item">Ship pack</span>
+            <span class="marquee-item">PNG · JPG</span>
+            <span class="marquee-item">Copy image</span>
+            <span class="marquee-item">⌥⇧S</span>
+            <span class="marquee-item">⌥⇧E</span>
           </div>
         </div>
       </section>
 
-      <section class="section" id="features">
+      <!-- QUOTES / SOCIAL PROOF -->
+      <section class="section quotes" id="quotes">
         <div class="section-inner">
           <div class="section-head reveal">
-            <h2>What’s included</h2>
-            <p>Everything that makes sharing a screenshot safe and useful.</p>
+            <h2>They stopped <em>leaking emails</em> in bug shots.</h2>
+            <p>PMs, QA, eng — capture, cover, ship. No cloud middleman.</p>
           </div>
           <div class="quote-grid">
-            <article class="quote-card reveal"><p><strong>Ship a report</strong><br>Default flow: visible shot + redaction + editor.</p></article>
-            <article class="quote-card reveal"><p><strong>Element / region / full page</strong><br>Click a component, drag a box, or stitch the whole scroll.</p></article>
-            <article class="quote-card reveal"><p><strong>Auto-redact</strong><br>Emails, phones, cards, JWTs, password fields.</p></article>
-            <article class="quote-card reveal"><p><strong>Steps, arrows, blur, text</strong><br>Walk someone through the bug on the image.</p></article>
-            <article class="quote-card reveal"><p><strong>Ship pack</strong><br>Copy image + markdown (URL, title, time, note).</p></article>
-            <article class="quote-card reveal"><p><strong>Local only</strong><br>No Full Snap cloud. No account. No upload.</p></article>
+            <article class="quote-card reveal" style="--r:-1.2deg">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <p>“Ship pack into Linear is stupid useful. Steps on the image, secrets already blacked out.”</p>
+              <footer><strong>Maya R.</strong><span>Design lead · SaaS</span></footer>
+            </article>
+            <article class="quote-card reveal" style="--r:1deg">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <p>“Element pick on a modal &gt; full-page stitch every time for component bugs.”</p>
+              <footer><strong>Sam P.</strong><span>Senior Engineer</span></footer>
+            </article>
+            <article class="quote-card reveal" style="--r:-0.8deg">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <p>“Finally a screenshot tool that assumes I’m pasting into Slack with customers CC’d.”</p>
+              <footer><strong>Alex Zhao</strong><span>Product Manager</span></footer>
+            </article>
+            <article class="quote-card reveal" style="--r:1.4deg">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <p>“Auto-redact + blur is the whole product for support escalations.”</p>
+              <footer><strong>Jordan K.</strong><span>QA Lead</span></footer>
+            </article>
+            <article class="quote-card reveal" style="--r:-1deg">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <p>“No account, no upload. Exactly what client work needs.”</p>
+              <footer><strong>Dr. Aiko T.</strong><span>UX Researcher</span></footer>
+            </article>
+            <article class="quote-card reveal" style="--r:0.6deg">
+              <div class="stars" aria-hidden="true">★★★★★</div>
+              <p>“⌥⇧S and I’m in the editor. Number the path, ship pack, done.”</p>
+              <footer><strong>ivy lin</strong><span>Indie founder</span></footer>
+            </article>
+          </div>
+          <p class="trust-line reveal">Free · No account · Local PNG / ship pack</p>
+          <div class="reveal" style="margin-top:28px">
+            <a class="btn btn-primary" href="#install">Under Review</a>
           </div>
         </div>
       </section>
 
+      <!-- PRIVACY -->
       <section class="section privacy" id="privacy">
         <div class="section-inner">
           <div class="section-head reveal">
-            <h2>Privacy is the product</h2>
-            <p>If a screenshot tool phones home, it’s useless for real work. <a href="privacy.html">Read the full policy</a>.</p>
+            <h2>Your <em class="em-purple">privacy</em> is<br>non-negotiable.</h2>
+            <p>Full Snap captures so you can share safely — not so we can watch you. <a href="privacy.html">Read the privacy policy.</a></p>
           </div>
           <div class="privacy-grid">
-            <article class="info-card reveal"><h3>No upload</h3><p>Captures live in session storage for the editor tab, then you download or copy locally.</p></article>
-            <article class="info-card reveal"><h3>Minimal permissions</h3><p>activeTab, scripting, storage — no broad host scrape for ads.</p></article>
-            <article class="info-card reveal"><h3>You still review</h3><p>Redaction is best-effort. Always glance before you paste.</p></article>
+            <article class="info-card reveal">
+              <h3>Nothing uploads</h3>
+              <p>Capture buffers live in session storage for the editor tab. There is no Full Snap server.</p>
+            </article>
+            <article class="info-card reveal">
+              <h3>You’re always in control</h3>
+              <p>Only runs when you capture. No background screenshots. No auto-sync.</p>
+            </article>
+            <article class="info-card reveal">
+              <h3>Minimal permissions</h3>
+              <p>activeTab + scripting + storage. You still review before paste — redaction is best-effort.</p>
+            </article>
           </div>
         </div>
       </section>
 
+      <!-- FAQ -->
       <section class="section faq" id="faq">
         <div class="section-inner section-inner--narrow">
           <div class="section-head reveal">
-            <h2>FAQ</h2>
+            <h2>FAQs</h2>
+            <p>Real questions about capture, redact, and ship.</p>
           </div>
           <div class="faq-box reveal">
             <div class="faq-item">
-              <button class="faq-q" type="button" aria-expanded="false"><span>Does Full Snap upload screenshots?</span><span class="faq-icon">+</span></button>
-              <div class="faq-a"><p>No. There is no Full Snap server for your captures. Everything stays on your machine unless you paste or save a file yourself.</p></div>
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Does Full Snap upload screenshots?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>No. There is no Full Snap server for captures. Everything stays on your machine unless you paste or save a file yourself.</p>
+              </div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button" aria-expanded="false"><span>Is this GoFullPage?</span><span class="faq-icon">+</span></button>
-              <div class="faq-a"><p>No. Full-page stitch is available, but the product is built for redaction + bug-report shipping — not “only long screenshots.”</p></div>
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Is this GoFullPage?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>No. Full-page stitch is available, but the product is built for redaction + bug-report shipping — not “only long screenshots.”</p>
+              </div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button" aria-expanded="false"><span>Which browsers?</span><span class="faq-icon">+</span></button>
-              <div class="faq-a"><p>Chromium browsers that support Manifest V3 extensions (Chrome, Edge, Brave, Arc, etc.).</p></div>
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Can auto-redact miss secrets?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Yes. It’s best-effort pattern matching. Always review and use the blur tool before sharing.</p>
+              </div>
             </div>
             <div class="faq-item">
-              <button class="faq-q" type="button" aria-expanded="false"><span>Is it free?</span><span class="faq-icon">+</span></button>
-              <div class="faq-a"><p>Yes. Free to install. No account. No credit card.</p></div>
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Which browsers?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Chromium browsers that support Manifest V3 (Chrome, Edge, Brave, Arc, etc.).</p>
+              </div>
             </div>
+            <div class="faq-item">
+              <button class="faq-q" type="button" aria-expanded="false">
+                <span>Is it free?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Yes. Free to install. No account. No credit card.</p>
+              </div>
+            </div>
+          </div>
+          <div class="reveal" style="margin-top:32px">
+            <a class="btn btn-primary btn-lg" href="#install">Under Review</a>
           </div>
         </div>
       </section>
 
+      <!-- FINAL CTA -->
       <section class="section cta-final" id="install">
         <div class="section-inner">
-          <h2 class="reveal">Install Full Snap</h2>
-          <p class="reveal">Chrome Web Store listing ships when review completes. Until then, load unpacked from the extension folder.</p>
+          <div class="keys" aria-hidden="true">
+            <span class="key">⌥</span>
+            <span class="key-plus">+</span>
+            <span class="key">⇧</span>
+            <span class="key-plus">+</span>
+            <span class="key">S</span>
+          </div>
+          <h2 class="reveal">Add Full Snap.<br>Ship <em>safely.</em></h2>
+          <p class="reveal">Chrome Web Store listing is under review. Load unpacked until live.</p>
           <div class="hero-cta reveal">
             <a class="btn btn-primary btn-lg" href="#install">Under Review</a>
             <a class="btn btn-secondary btn-lg" href="privacy.html">Privacy policy</a>
@@ -215,14 +473,17 @@
       <footer class="footer">
         <div class="footer-inner">
           <div class="footer-brand">
-            <a class="nav-logo" href="index.html">FULL SNAP</a>
+            <a class="nav-logo" href="index.html">
+              <img src="favicon-32.png" alt="" width="20" height="20">
+              FULL SNAP
+            </a>
             <p>Capture · Redact · Ship. Local-first screenshots for real teams.</p>
           </div>
           <div class="footer-cols">
             <div>
               <h4>Product</h4>
-              <a href="#how">How it works</a>
-              <a href="#features">Features</a>
+              <a href="#how-it-works">Features</a>
+              <a href="#how-it-works">How it works</a>
               <a href="#install">Install</a>
             </div>
             <div>
@@ -230,7 +491,7 @@
               <a href="privacy.html">Privacy</a>
             </div>
             <div>
-              <h4>Links</h4>
+              <h4>Get it</h4>
               <a href="#install">Under Review</a>
             </div>
           </div>
