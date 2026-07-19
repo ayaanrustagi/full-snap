@@ -1,78 +1,205 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@500;600;700;800&family=IBM+Plex+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Schibsted+Grotesk:wght@500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
-  body{width:1280px;height:800px;overflow:hidden;font-family:"Schibsted Grotesk",system-ui,sans-serif;background:#1c1917;color:#0a0a0a}
-  .bar{height:64px;background:#f6f3ec;border-bottom:2px solid #0a0a0a;display:flex;align-items:center;
-    justify-content:space-between;padding:0 18px;gap:10px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:14px}
-  .dot{width:12px;height:12px;border-radius:50%;background:#c1f04c;border:1.5px solid #0a0a0a}
-  .tools{display:flex;gap:6px;flex-wrap:wrap}
-  .t{border:1.5px solid #0a0a0a;background:#fff;border-radius:999px;padding:7px 11px;font-size:12px;font-weight:700;
-    box-shadow:2px 2px 0 #0a0a0a}
+  body{
+    width:1280px;height:800px;overflow:hidden;
+    font-family:"Schibsted Grotesk",system-ui,sans-serif;
+    background:#1c1917;color:#0a0a0a;
+  }
+  .bar{
+    height:56px;background:#f6f3ec;border-bottom:2px solid #0a0a0a;
+    display:flex;align-items:center;justify-content:space-between;padding:0 16px;
+  }
+  .brand{display:flex;align-items:center;gap:8px;font-weight:800;font-size:13px}
+  .dot{width:11px;height:11px;border-radius:50%;background:#c1f04c;border:1.5px solid #0a0a0a}
+  .tools{display:flex;gap:6px;align-items:center}
+  .t{
+    border:1.5px solid #0a0a0a;background:#fff;border-radius:999px;
+    padding:6px 11px;font-size:11px;font-weight:700;box-shadow:2px 2px 0 #0a0a0a;
+  }
   .t.on{background:#b45309;color:#fff}
   .t.ship{background:#c1f04c}
-  .stage{height:736px;display:grid;grid-template-columns:1fr 280px}
-  .canvas-wrap{display:flex;align-items:center;justify-content:center;padding:28px}
-  .canvas{width:820px;height:560px;background:#fff;border:2px solid #0a0a0a;box-shadow:0 24px 60px rgba(0,0,0,.5);
-    position:relative;overflow:hidden}
-  .fake-page{padding:28px 36px}
-  .fake-page h2{font-family:"Instrument Serif",serif;font-size:32px;font-weight:400;margin-bottom:10px}
-  .fake-page p{font-size:14px;line-height:1.55;color:#3a352e;margin-bottom:10px;max-width:520px}
-  .blackbar{display:inline-block;height:14px;width:160px;background:#0a0a0a;border-radius:2px;
-    vertical-align:middle;box-shadow:0 0 0 1px rgba(193,240,76,.45)}
-  .num{position:absolute;width:34px;height:34px;border-radius:50%;background:#b45309;border:2px solid #0a0a0a;
-    color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
-  .n1{left:48px;top:120px}.n2{left:48px;top:210px}.n3{left:48px;top:300px}
-  .arr{position:absolute;left:100px;top:318px;width:120px;height:4px;background:#5b5bd6;transform:rotate(-8deg)}
-  .arr:after{content:"";position:absolute;right:-1px;top:-6px;border:8px solid transparent;border-left-color:#5b5bd6}
-  .blur{position:absolute;right:40px;top:160px;width:180px;height:70px;
-    background:repeating-conic-gradient(#888 0% 25%,#ccc 0% 50%) 50%/12px 12px;border:2px dashed #c1f04c;border-radius:6px}
-  .rail{background:#f6f3ec;border-left:2px solid #0a0a0a;padding:22px 18px}
-  .rail h3{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:#b45309;margin-bottom:10px}
-  .rail .box{border:1.5px solid #0a0a0a;background:#fff;border-radius:10px;padding:12px;font-size:12px;
-    line-height:1.45;margin-bottom:12px;box-shadow:2px 2px 0 #0a0a0a}
-  .rail .lime{background:#c1f04c;font-weight:800;border:1.5px solid #0a0a0a;border-radius:8px;padding:8px;font-size:12px;margin-bottom:12px}
-  .rail .cta{width:100%;text-align:center;background:#c1f04c;border:2px solid #0a0a0a;border-radius:10px;
-    padding:12px;font-weight:800;box-shadow:3px 3px 0 #0a0a0a;font-size:13px}
-  .mono{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#5a5a5a}
+
+  .stage{height:744px;display:grid;grid-template-columns:minmax(0,1fr) 300px}
+  .canvas-wrap{
+    display:flex;align-items:center;justify-content:center;
+    padding:32px;background:#1c1917;
+  }
+  .canvas{
+    width:840px;height:640px;background:#fff;
+    border:2px solid #0a0a0a;
+    box-shadow:0 22px 55px rgba(0,0,0,.55);
+    position:relative;overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .page{padding:26px 40px 28px 56px;flex:1;position:relative}
+
+  .url{
+    font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:600;color:#6b6560;
+    margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid #ece8e0;
+  }
+  h1{
+    font-family:"Instrument Serif",Georgia,serif;font-weight:400;
+    font-size:40px;letter-spacing:-.02em;line-height:1;margin-bottom:16px;
+  }
+
+  .block{margin-bottom:14px;max-width:560px}
+  .block p{font-size:14.5px;line-height:1.55;color:#3a352e;margin:0 0 8px}
+
+  .redact{
+    display:inline-block;height:13px;width:150px;background:#0a0a0a;
+    border-radius:2px;vertical-align:-2px;
+    box-shadow:0 0 0 1.5px rgba(193,240,76,.6);
+  }
+  .hi{
+    background:linear-gradient(transparent 58%, rgba(193,240,76,.85) 58%);
+    font-weight:800;padding:0 3px;
+  }
+
+  /* payment row with blur over last4 */
+  .pay-row{
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+    font-size:14.5px;line-height:1.5;color:#3a352e;margin-bottom:8px;
+  }
+  .blur{
+    display:inline-block;width:76px;height:18px;vertical-align:middle;
+    border-radius:3px;border:1.5px solid #0a0a0a;
+    background:
+      linear-gradient(90deg, #b0b0b0 0 25%, #ddd 25% 50%, #999 50% 75%, #ccc 75%),
+      linear-gradient(#a3a3a3,#d4d4d4);
+    background-size:8px 100%, 100% 100%;
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);
+  }
+
+  .card{
+    margin-top:8px;margin-bottom:12px;padding:14px 16px;
+    border:1.5px solid #0a0a0a;border-radius:10px;background:#fffdf8;
+    max-width:480px;font-size:13.5px;line-height:1.5;
+  }
+  .card strong{font-weight:800}
+  .err{
+    max-width:480px;padding:11px 14px;border-radius:8px;
+    background:#fee2e2;border:1.5px solid #b91c1c;color:#7f1d1d;
+    font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:8px;
+  }
+  .foot{
+    margin-top:20px;font-size:12px;color:#8a8177;font-weight:600;
+  }
+
+  /* steps sit left of content, clean alignment */
+  .step{
+    position:absolute;left:16px;width:28px;height:28px;border-radius:50%;
+    background:#b45309;border:2px solid #0a0a0a;color:#fff;
+    font-weight:800;font-size:13px;display:grid;place-items:center;
+    box-shadow:2px 2px 0 #0a0a0a;z-index:4;
+  }
+  .s1{top:149px}   /* promo SAVE10 */
+  .s2{top:210px}   /* totals card */
+  .s3{top:277px}   /* error toast */
+
+  /* purple arrow into the error toast */
+  .arrow{
+    position:absolute;left:52px;top:285px;z-index:3;
+    width:0;height:0;
+  }
+  .arrow svg{display:block}
+
+  .rail{
+    background:#f6f3ec;border-left:2px solid #0a0a0a;
+    padding:20px 16px;display:flex;flex-direction:column;gap:12px;
+  }
+  .rail h3{
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    font-weight:800;color:#b45309;
+  }
+  .lime{
+    background:#c1f04c;border:1.5px solid #0a0a0a;border-radius:8px;
+    padding:9px 10px;font-size:12px;font-weight:800;
+  }
+  .box{
+    border:1.5px solid #0a0a0a;background:#fff;border-radius:10px;
+    padding:12px;font-size:12px;line-height:1.45;box-shadow:2px 2px 0 #0a0a0a;
+  }
+  .mono{font-family:"IBM Plex Mono",monospace;font-size:10px;color:#5a5a5a;margin-top:4px}
+  .hint{font-size:11px;color:#5a5a5a;line-height:1.45}
+  .cta{
+    margin-top:auto;width:100%;text-align:center;background:#c1f04c;
+    border:2px solid #0a0a0a;border-radius:10px;padding:13px;
+    font-weight:800;font-size:13px;box-shadow:3px 3px 0 #0a0a0a;
+  }
 </style></head>
 <body>
   <div class="bar">
     <div class="brand"><span class="dot"></span>Full Snap</div>
     <div class="tools">
-      <span class="t on">Pen</span><span class="t">Hi</span><span class="t">Arrow</span>
-      <span class="t">Step</span><span class="t">Blur</span><span class="t">Text</span>
+      <span class="t">Pen</span>
+      <span class="t">Hi</span>
+      <span class="t">Arrow</span>
+      <span class="t on">Step</span>
+      <span class="t">Blur</span>
+      <span class="t">Text</span>
     </div>
     <div class="tools">
-      <span class="t">Copy image</span><span class="t ship">Ship pack</span>
+      <span class="t">Copy image</span>
+      <span class="t ship">Ship pack</span>
     </div>
   </div>
+
   <div class="stage">
     <div class="canvas-wrap">
       <div class="canvas">
-        <div class="fake-page">
-          <h2>Checkout failed</h2>
-          <p>Order for <span class="blackbar"></span> could not be completed.</p>
-          <p>Payment method ending in •••• 4242 was declined after applying promo <strong>SAVE10</strong>.</p>
-          <p style="margin-top:24px">Expected: total $42.00 → Actual: error toast, cart stuck.</p>
+        <div class="page">
+          <div class="url">shop.example.com/cart · checkout</div>
+          <h1>Checkout failed</h1>
+
+          <div class="block">
+            <p>Order for <span class="redact"></span> could not be completed.</p>
+            <div class="pay-row">
+              <span>Card ending</span>
+              <span class="blur" title="redacted last4"></span>
+              <span>declined after promo <span class="hi">SAVE10</span></span>
+            </div>
+          </div>
+
+          <div class="card">
+            <strong>Expected total</strong> $42.00<br>
+            <strong>Actual</strong> — cart stuck on “Place order”
+          </div>
+
+          <div class="err">
+            <span>⚠</span>
+            <span>Promo SAVE10 breaks payment authorization</span>
+          </div>
+
+          <p class="foot">Captured for Linear · local only · not uploaded</p>
         </div>
-        <div class="num n1">1</div>
-        <div class="num n2">2</div>
-        <div class="num n3">3</div>
-        <div class="arr"></div>
-        <div class="blur"></div>
+
+        <div class="step s1">1</div>
+        <div class="step s2">2</div>
+        <div class="step s3">3</div>
+        <div class="arrow">
+          <svg width="120" height="20" viewBox="0 0 120 20" fill="none">
+            <path d="M2 10 H102" stroke="#5B5BD6" stroke-width="3" stroke-linecap="round"/>
+            <path d="M96 3 L110 10 L96 17" fill="#5B5BD6"/>
+          </svg>
+        </div>
       </div>
     </div>
+
     <aside class="rail">
       <h3>Report pack</h3>
       <div class="lime">🔒 2 sensitive regions covered</div>
       <div class="box">
-        <strong>What:</strong> Promo SAVE10 breaks checkout<br>
-        <span class="mono">shop.example.com/cart</span>
+        <strong>What:</strong> Promo SAVE10 breaks checkout
+        <div class="mono">shop.example.com/cart</div>
       </div>
-      <div class="box">Steps on image: 1–3<br>Mode: report · local</div>
+      <div class="box">
+        Steps on image: 1–3<br>
+        Mode: report · local
+      </div>
+      <p class="hint">1 promo · 2 totals · 3 error. Ready for Slack / Linear.</p>
       <div class="cta">Copy image + report text</div>
     </aside>
   </div>
